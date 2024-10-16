@@ -1,7 +1,7 @@
 import Dice, {Die } from "./components/dice"
 import { useEffect, useState } from "react"
 import "./App.css"
-
+import Confetti from "react-confetti"
 
 export default function App() {
   const [diceList, setDiceList] = useState([...Array(10)].map(() => {
@@ -19,7 +19,7 @@ export default function App() {
     const end = allSame()
     setGameEnd(end);
     if (end) {
-      setButtonText("Reset")
+      setButtonText("New Game")
     }else{
       setButtonText("Roll")
     }
@@ -27,6 +27,7 @@ export default function App() {
   }, [diceList])
   return(
     <div className="main-body">
+      {gameEnd && <Confetti />}
       <div className="game-text">
         <h1>Tenzies</h1>
         <p>Roll until all dice are the same. Click each die or use keyboard controls 

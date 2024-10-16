@@ -100,7 +100,7 @@ export default function Dice({buttonText, diceList, setDiceList, setButtonText, 
     }
     
     return(
-        <div className = "button-area" tabIndex="0">
+        <div className = "button-area" >
             <div className="dice-area">
                 {displayDice}
             </div>
