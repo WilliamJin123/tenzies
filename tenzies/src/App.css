@@ -1,0 +1,45 @@
+body{
+  display:flex;
+  position: absolute;
+  width: 100%;
+  font-family: 'Karla';
+  box-sizing: border-box;
+  background-color: #0B2434;
+}
+
+div{
+  width: 95%;
+  margin: 2%;
+ 
+}
+button{
+  border-radius: 5px;
+  border: none;
+  font-family: inherit;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  
+}
+button:active{
+  /* box-shadow:
+  inset 2px 2px 4px rgba(0, 0, 0, 0.5); */
+}
+.main-body{
+  height: auto;
+  min-height: 50vh;
+  background-color: white;
+}
+.game-text{
+  font-family: 'Karla';
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 1% 5%;
+  width: 90%;
+}.game-text h1{
+  font-size: 4rem;
+  font-weight: 600;
+  margin: 2.5%;
+}.game-text p{
+  font-size: 1.25rem;
+}
