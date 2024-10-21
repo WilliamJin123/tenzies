@@ -11,7 +11,8 @@ export default function App() {
   })) //10 dice
   const [buttonText, setButtonText] = useState("Roll")
   const [gameEnd, setGameEnd] = useState(false)
-
+  const [rolls, setRolls] = useState(0)
+  const [time, setTime] = useState(0)
   function allSame() {
     return diceList.every(die => die.value === diceList[0].value && die.freeze)
   }
@@ -25,9 +26,24 @@ export default function App() {
     }
     
   }, [diceList])
+
+  useEffect(() => {
+    if(!gameEnd){
+       const interval = setInterval(() => {
+      setTime(prev => prev+1)
+    }, 1000)
+    return () => {clearInterval(interval)}
+    }
+   
+  }, [time])
   return(
     <div className="main-body">
       {gameEnd && <Confetti />}
+
+      <span className="score-sheet">
+      Rolls: {rolls} <br/>
+      Time taken: {time} {time === 1? 'second': 'seconds'}
+      </span> 
       <div className="game-text">
         <h1>Tenzies</h1>
         <p>Roll until all dice are the same. Click each die or use keyboard controls 
@@ -42,6 +58,10 @@ export default function App() {
         setButtonText = {setButtonText}
         gameEnd = {gameEnd}
         setGameEnd = {setGameEnd}
+        rolls = {rolls}
+        setRolls = {setRolls}
+        time = {time}
+        setTime = {setTime}
       />
     </div>
   )

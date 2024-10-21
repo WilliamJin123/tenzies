@@ -13,7 +13,9 @@ export class Die{
     }
   }
 
-export default function Dice({buttonText, diceList, setDiceList, setButtonText, gameEnd, setGameEnd}) {
+export default function Dice({buttonText, diceList, setDiceList, setButtonText, gameEnd, setGameEnd,
+    rolls, setRolls, time, setTime
+}) {
     
 
     const displayDice = diceList.map((die, dieIndex) => (
@@ -84,6 +86,7 @@ export default function Dice({buttonText, diceList, setDiceList, setButtonText, 
                 die.freeze? die : new Die(die.roll(), die.sides, die.freeze)
             ))
         );
+        setRolls(prev => prev+1)
     }
 
     function resetDice() {
@@ -97,6 +100,8 @@ export default function Dice({buttonText, diceList, setDiceList, setButtonText, 
                
             )
         )
+        setRolls(0);
+        setTime(0);
     }
     
     return(
